@@ -1,11 +1,9 @@
 {
-    "name": "moyses",
-    "version": "0.1.2",
-    "description": "MOYSES is a Support Vector Machine (SVM) library for node.js using TypeScript. It's used for binary classification purposes using n-dimensional datasets.",
+    "name": "thicker",
+    "version": "0.1.0",
+    "description": "Typescript utils",
     "keywords": [
-        "svm",
-        "support vector machine",
-        "machine learning"
+        "utils"
     ],
     "author": "Bastien GUIHARD",
     "license": "MIT",
@@ -14,12 +12,12 @@
     "types": "dist/types/index.d.ts",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/guihardbastien/MOYSES.git"
+        "url": "git+https://github.com/guihardbastien/THICKER.git"
     },
     "bugs": {
-        "url": "https://github.com/guihardbastien/MOYSES/issues"
+        "url": "https://github.com/guihardbastien/THICKER/issues"
     },
-    "homepage": "https://github.com/guihardbastien/node-svm-smo#readme",
+    "homepage": "https://github.com/guihardbastien/THICKER#readme",
     "engines": {
         "node": ">=8.9.0"
     },
