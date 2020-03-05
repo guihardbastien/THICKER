@@ -1,6 +1,8 @@
 import * as Thicker from '../lib';
 import * as Chai from 'chai';
 
+import * as Crypto from '../lib/crypto_utils/crypto_modules';
+
 const should = Chai.should();
 
 describe('Library#index', () => {
@@ -10,3 +12,4 @@ describe('Library#index', () => {
         should.exist(Thicker.rec);
     });
 });
+
