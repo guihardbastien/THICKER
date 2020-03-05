@@ -5,10 +5,8 @@ import * as StringUtils from '../string_utils/string_modules'
  * 
  */
 export function hexToBase64(hexInput: string): string {
-    
     const hex = hexInput.toUpperCase();
     let binBuffer: string = CUtils.hexToBin(hex);
-
     binBuffer = CUtils.padding(binBuffer);
     const chunks = StringUtils.chunkString(binBuffer, 6);
     if(chunks === null){
@@ -41,8 +39,19 @@ export function fixedHexXor(hex1: string, hex2: string):string {
 /**
  * 
  */
-export function singleByteXorCipher(hex: string):string {
-    return "1";
+export function singleByteXorCipher(inputHex: string, key: string):string {
+
+    const hex = inputHex.toUpperCase();
+
+    if (key.length !== 1){
+        throw Error ("Key length 1")
+    };
+    let singleByteCipher = "";
+    for (let i = 0; i < hex.length; i++) {
+        singleByteCipher = singleByteCipher + key
+    }
+
+    return fixedHexXor(hex,singleByteCipher);
 }
 
 /**
