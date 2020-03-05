@@ -9,7 +9,7 @@ describe('Library#crypto', () => {
         test.should.eql("SSdtIGtpbGxpbmcgeW91ciBicmFpbiBsaWtlIGEgcG9pc29ub3VzIG11c2hyb29t");
     });
     it('todo2', () => {
-        const test = Crypto.fixedHexXor("1c0111001f010100061a024b53535009181c", "686974207468652062756c6c277320657965")
+        const test = Crypto.fixedHexXor("686974207468652062756c6c277320657965","1c0111001f010100061a024b53535009181c")
         //test.should.eql("746865206b696420646f6e277420706c6179");
         console.log(test);
     });

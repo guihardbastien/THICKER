@@ -33,7 +33,7 @@ export function fixedHexXor(hex1: string, hex2: string):string {
     const xored = CUtils.xor(h1,h2);
     let result = "";
     StringUtils.chunkString(xored,4)?.forEach(elt =>{
-        result = CUtils.BIN_TO_HEX[elt] + result
+        result = result + CUtils.BIN_TO_HEX[elt] 
     })
     return result;
 }
@@ -48,7 +48,7 @@ export function singleByteXorCipher(hex: string):string {
 /**
  * 
  */
-export function DetectSingleCharXor(hex: string):string {
+export function detectSingleCharXor(hex: string):string {
     return "1";
 }
 

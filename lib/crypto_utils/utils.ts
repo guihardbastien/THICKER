@@ -22,11 +22,10 @@ export function xor(bin1: string, bin2: string) {
     for (var i = 0; i < bin1.length; i++) {
         const char1 = parseInt(bin1.charAt(i));
         const char2 = parseInt(bin2.charAt(i));
-
         const xored = char1^char2
-        buffer = xored + buffer;
+        buffer = buffer + xored;
       } 
-    return buffer
+    return buffer;
 }
 
 /**
