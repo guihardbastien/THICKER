@@ -1,20 +1,20 @@
-import * as StringUtils from '../string_utils/string_modules'
+import * as StringUtils from '../string_utils/string_modules';
 import * as CErrors from './errors';
 
 /**
  * Xor two binary numbers together
- * @param bin1 
- * @param bin2 
+ * @param bin1
+ * @param bin2
  */
 export function xor(bin1: string, bin2: string) {
-    CErrors.hasSameLength(bin1, bin2)
-    let buffer = "";
-    for (var i = 0; i < bin1.length; i++) {
-        const char1 = parseInt(bin1.charAt(i));
-        const char2 = parseInt(bin2.charAt(i));
-        const xored = char1^char2
+    CErrors.hasSameLength(bin1, bin2);
+    let buffer = '';
+    for (let i = 0; i < bin1.length; i += 1) {
+        const char1 = parseInt(bin1.charAt(i), 10);
+        const char2 = parseInt(bin2.charAt(i), 10);
+        const xored = char1 ^ char2;
         buffer = buffer + xored;
-      } 
+    }
     return buffer;
 }
 
@@ -23,43 +23,45 @@ export function xor(bin1: string, bin2: string) {
  * @param input binary string
  */
 export function padding(input: string) {
-    if (input.length % 6 === 2 ){
-        return '0000' + input ;
+    if (input.length % 6 === 2) {
+        return `0000${input}`;
     }
-    if (input.length % 6 === 4 ){
-        return '00' + input ;
+    if (input.length % 6 === 4) {
+        return `00${input}`;
     }
-    return input; 
+    return input;
 }
 
 /**
  * Turns bin string to ascii string
- * @param input 
+ * @param input
  */
 export function binToAscii(input: string) {
-    let result = "";
-    let arr = input.match(/.{1,8}/g);
-    if(!arr){ throw Error ('empty array')}
-    for (let i = 0; i < arr.length; i++) {
-        result += String.fromCharCode(parseInt(arr[i], 2));
+    let result = '';
+    const arr = input.match(/.{1,8}/g);
+    if (arr) {
+        for (let i = 0; i < arr.length; i += 1) {
+            result += String.fromCharCode(parseInt(arr[i], 2));
+        }
+        return result;
     }
-    return result;
+    return CErrors.isEmptyError();
 }
 
 /**
  * Compares the likelyhood of being an english sentence
- * @param input 
+ * @param input
  */
 export function englishScoring(input: string[]):string {
-    let mostLikely: string = "";
+    let mostLikely: string = '';
     let currentScore: number = 0;
-    input.forEach(elt=>{
+    input.forEach((elt) => {
         let score = 0;
-        for (let i = 0; i < elt.length; i++) {
+        for (let i = 0; i < elt.length; i += 1) {
             const char = elt.charAt(i).toLowerCase();
             isNaN(CHAR_FREQ[char]) ? score += 0 : score += CHAR_FREQ[char];
         }
-        if (score > currentScore){
+        if (score > currentScore) {
             mostLikely = elt;
             currentScore = score;
         }
@@ -69,103 +71,103 @@ export function englishScoring(input: string[]):string {
 
 /**
  * XOR one ascii byte to another ascii byte
- * @param char1 
- * @param char2 
+ * @param char1
+ * @param char2
  */
 export function xorSingleByte(char1: string, char2: string) {
     CErrors.hasOnlyOneChar(char1);
-    CErrors.hasSameLength(char1, char2)
+    CErrors.hasSameLength(char1, char2);
     let bin1 = char1.charCodeAt(0).toString(2);
     let bin2 = char2.charCodeAt(0).toString(2);
-    bin1 = "0".repeat(8 - bin1.length) + bin1;
-    bin2 = "0".repeat(8 - bin2.length) + bin2;
-    return xor(bin1,bin2)
+    bin1 = '0'.repeat(8 - bin1.length) + bin1;
+    bin2 = '0'.repeat(8 - bin2.length) + bin2;
+    return xor(bin1, bin2);
 }
 
 /**
  * Turns bin string to hex string
- * @param bin 
+ * @param bin
  */
-export function binToHex(bin:string){
-    let buffer = "";
-    StringUtils.chunkString(bin,4)?.forEach(elt =>{
-        buffer = buffer + BIN_TO_HEX[elt] 
+export function binToHex(bin: string) {
+    let buffer = '';
+    StringUtils.chunkString(bin, 4)?.forEach((elt) => {
+        buffer = buffer + BIN_TO_HEX[elt];
     });
     return buffer;
 }
 
 /**
  * Turns hex string to bin string
- * @param hex 
+ * @param hex
  */
 export function hexToBin(hex: string):string {
     const input = hex.toUpperCase();
-    let buffer = "";
-    for (let i = 0; i < input.length; i++) {
+    let buffer = '';
+    for (let i = 0; i < input.length; i += 1) {
         const char = input.charAt(i);
         buffer = buffer + HEX_TO_BIN[char];
-      } 
-    return buffer
+    }
+    return buffer;
 }
 
 /**
  * Turns bin string to base 64 string
- * @param input 
+ * @param input
  */
 export function binTo64(input: string):string {
-    let buffer = "";
-    StringUtils.chunkString(input,6)?.forEach(elt =>{
-        buffer = buffer + BIN_TO_BASE64[elt]
-    })
-    return buffer
+    let buffer = '';
+    StringUtils.chunkString(input, 6)?.forEach((elt) => {
+        buffer = buffer + BIN_TO_BASE64[elt];
+    });
+    return buffer;
 }
 
 /**
- * 
+ *
  */
 export const BIN_TO_HEX: {[key:string]:any} = {
-    "0000": "0",
-	"0001": "1",
-	"0010": "2",
-	"0011": "3",
-	"0100": "4",
-	"0101": "5",
-	"0110": "6",
-	"0111": "7",
-	"1000": "8",
-	"1001": "9",
-	"1010": "A",
-	"1011": "B",
-	"1100": "C",
-	"1101": "D",
-	"1110": "E",
-	"1111": "F",
+    '0000': '0',
+    '0001': '1',
+    '0010': '2',
+    '0011': '3',
+    '0100': '4',
+    '0101': '5',
+    '0110': '6',
+    '0111': '7',
+    1000: '8',
+    1001: '9',
+    1010: 'A',
+    1011: 'B',
+    1100: 'C',
+    1101: 'D',
+    1110: 'E',
+    1111: 'F',
 };
 
 /**
- * 
+ *
  */
 export const HEX_TO_BIN: {[key:string]:any} = {
-    "0": "0000",
-	"1": "0001",
-	"2": "0010",
-	"3": "0011",
-	"4": "0100",
-	"5": "0101",
-	"6": "0110",
-	"7": "0111",
-	"8": "1000",
-	"9": "1001",
-	"A": "1010",
-	"B": "1011",
-	"C": "1100",
-	"D": "1101",
-	"E": "1110",
-	"F": "1111",
+    0: '0000',
+    1: '0001',
+    2: '0010',
+    3: '0011',
+    4: '0100',
+    5: '0101',
+    6: '0110',
+    7: '0111',
+    8: '1000',
+    9: '1001',
+    A: '1010',
+    B: '1011',
+    C: '1100',
+    D: '1101',
+    E: '1110',
+    F: '1111',
 };
 
 /**
- * 
+ *
  */
 export const BIN_TO_BASE64: {[key:string]:any} = {
     '000000' : 'A',
