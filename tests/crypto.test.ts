@@ -1,6 +1,7 @@
 import * as Chai from 'chai';
 import * as Crypto from '../lib/crypto_utils/crypto_modules';
 import * as CUtils from '../lib/crypto_utils/utils';
+import * as TestSets from '../lib/crypto_utils/test_utils';
 
 const should = Chai.should();
 
@@ -28,10 +29,10 @@ describe('Library#crypto', () => {
         const test = CUtils.englishScoring(arr);
         test.should.eql("Cooking MC's like a pound of bacon");
     });
-/*
+
     it('todo4', () => {
         let responses: string[] = [];
-        CUtils.TO_TEST.forEach(hex=>{
+        TestSets.TO_TEST.forEach(hex=>{
         let arr: string[] = [];
         for (let i = 0; i < 255; i++) {
             arr.push(Crypto.singleByteXorCipher(hex, i));
@@ -40,7 +41,7 @@ describe('Library#crypto', () => {
         })
         const test = CUtils.englishScoring(responses);
         test.should.eql("Now that the party is jumping\n");
-    });*/
+    });
 
     it('todo5', () => {
         const str = "Burning 'em, if you ain't quick and nimble I go crazy when I hear a cymbal";
@@ -48,6 +49,7 @@ describe('Library#crypto', () => {
         
         const key = "ICE";
         const test = Crypto.repeatingKeyXor(str,key);
+        console.log(test);
         //test.should.eql(res.toUpperCase());
        
 
