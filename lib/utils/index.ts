@@ -1,5 +1,5 @@
-import * as StringUtils from '../string_utils/string_modules';
-import * as CErrors from './errors';
+import * as StringUtils from '../core/string';
+import * as CErrors from '../errors';
 
 /**
  * Xor two binary numbers together

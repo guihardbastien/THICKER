@@ -1,5 +1,5 @@
 
-import { randomFloat } from '../random_utils/random_module';
+import { randomFloat } from '../random';
 
 /**
  * Generates point inside sphere

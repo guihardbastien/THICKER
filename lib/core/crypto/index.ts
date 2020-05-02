@@ -1,6 +1,6 @@
 import * as CUtils from './utils';
-import * as StringUtils from '../string_utils/string_modules';
-import * as CErrors from './errors';
+import * as StringUtils from '../string';
+import * as CErrors from '../../errors';
 
 /**
  * Converts hex string to base64 string
