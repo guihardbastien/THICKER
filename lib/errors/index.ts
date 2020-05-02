@@ -11,7 +11,7 @@ export function hasSameLength(input1 :string, input2: string) {
 }
 
 /**
- *
+ * only one char error
  * @param input1
  */
 export function hasOnlyOneChar(input1 :string) {
@@ -29,7 +29,7 @@ export function isEmptyError() {
 }
 
 /**
- *
+ * Length error
  * @param str
  * @param l
  */

@@ -1,6 +1,34 @@
 import * as CUtils from './utils';
 import * as StringUtils from '../string';
 import * as CErrors from '../../errors';
+import * as CryptoTs from 'crypto-ts';
+/**
+ * Encrypts password using AES256
+ * @param password
+ * @param secret
+ */
+export function aes256Encryption(key: string, plainText: string) {
+    return CryptoTs.AES.encrypt(plainText, key).toString();
+}
+
+/**
+ * Decrypt password using AES256
+ * @param key
+ * @param encryptedPassword
+ */
+export function aes256Decryption(key: string, encryptedPassword: string) {
+    const bytes = CryptoTs.AES.decrypt(encryptedPassword, key);
+    return bytes.toString(CryptoTs.enc.Utf8);
+}
+
+/**
+ * Gets rid of salt
+ * @param saltedPassword
+ * @param salt
+ */
+export function removeSalt(saltedPassword: string, salt: string) {
+    return saltedPassword.replace(salt, '');
+}
 
 /**
  * Converts hex string to base64 string

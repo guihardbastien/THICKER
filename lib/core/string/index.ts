@@ -1,5 +1,5 @@
 /**
- * Chunks string into bits of <length> 
+ * Chunks string into bits of <length>
  * @param str
  * @param length
  */
