@@ -1,5 +1,5 @@
 import * as StringUtils from '../string';
-import * as CErrors from '../../errors';
+import * as Utils from '../../utils';
 
 /**
  * Xor two binary numbers together
@@ -7,7 +7,7 @@ import * as CErrors from '../../errors';
  * @param bin2
  */
 export function xor(bin1: string, bin2: string) {
-    CErrors.hasSameLength(bin1, bin2);
+    Utils.hasSameLength(bin1, bin2);
     let buffer = '';
     for (let i = 0; i < bin1.length; i += 1) {
         const char1 = parseInt(bin1.charAt(i), 10);
@@ -45,7 +45,7 @@ export function binToAscii(input: string) {
         }
         return result;
     }
-    return CErrors.isEmptyError();
+    return Utils.isEmpty();
 }
 
 /**
@@ -75,8 +75,8 @@ export function englishScoring(input: string[]):string {
  * @param char2
  */
 export function xorSingleByte(char1: string, char2: string) {
-    CErrors.hasOnlyOneChar(char1);
-    CErrors.hasSameLength(char1, char2);
+    Utils.checkLength(char1, 1)
+    Utils.hasSameLength(char1, char2);
     let bin1 = char1.charCodeAt(0).toString(2);
     let bin2 = char2.charCodeAt(0).toString(2);
     bin1 = '0'.repeat(8 - bin1.length) + bin1;

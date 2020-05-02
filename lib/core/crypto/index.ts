@@ -1,6 +1,6 @@
 import * as CUtils from './utils';
 import * as StringUtils from '../string';
-import * as CErrors from '../../errors';
+import * as Utils from '../../utils';
 import * as CryptoTs from 'crypto-ts';
 /**
  * Encrypts password using AES256
@@ -45,7 +45,7 @@ export function hexToBase64(hexInput: string): string {
  * @param hex2
  */
 export function fixedHexXor(hex1: string, hex2: string):string {
-    CErrors.hasSameLength(hex1, hex2);
+    Utils.hasSameLength(hex1, hex2);
     const xored = CUtils.xor(CUtils.hexToBin(hex1), CUtils.hexToBin(hex2));
     let result = '';
     StringUtils.chunkString(xored, 4)?.forEach((elt) => {
@@ -65,7 +65,7 @@ export function singleByteXorCipher(inputHex: string, inputKey: number):string|v
     let binKey = inputKey.toString(2);
     // padding the key to fit 8 bytes
     binKey = '0'.repeat(8 - binKey.length) + binKey;
-    CErrors.checkLength(binKey, 8);
+    Utils.checkLength(binKey, 8);
     const cipher = binKey.repeat(bin.length / 8);
     return CUtils.binToAscii(CUtils.xor(bin, cipher));
 }
