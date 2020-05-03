@@ -10,22 +10,25 @@ THICKER is a set of typescript utils wrapped inside a nice little package.
 ### Directory structure 
 ```bash
 .
-├── lib
-│   ├── geometry_utils
-│   │   └── geometry_module.ts
-│   ├── index.ts
-│   ├── random_utils
-│   │   └── random_module.ts
-│   └── recursion_utils
-│       └── recursion_module.ts
-├── LICENSE
-├── package.json
-├── package-lock.json
-├── README.md
-├── tests
-│   └── library.test.ts
-├── tsconfig.json
-└── tslint.json
+├── core
+│   ├── browser
+│   │   └── index.ts
+│   ├── crypto
+│   │   ├── index.ts
+│   │   └── utils.ts
+│   ├── geometry
+│   │   └── index.ts
+│   ├── random
+│   │   └── index.ts
+│   ├── recursion
+│   │   └── index.ts
+│   └── string
+│       └── index.ts
+├── errors
+│   └── index.ts
+├── index.ts
+└── utils
+    └── index.ts
 ```
 
 ### How to build the library to be used in production-ready projects?
