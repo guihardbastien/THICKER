@@ -48,11 +48,21 @@ const randomPoint = Thicker.Random.randomFloat(0,100)
 
 __Random__:
 * TBA
+
 __Recursion__:
+* TBA
+
 __Geometry__:
+* TBA
+
 __String__:
+* TBA
+
 __Utils__:
+* TBA
+
 __Crypto__:
+* TBA
 
 ## NPM custom commands
 
