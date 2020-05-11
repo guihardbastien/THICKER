@@ -32,23 +32,27 @@ THICKER is a set of typescript utils wrapped inside a nice little package.
 ```
 
 ### How to build the library to be used in production-ready projects?
-
-:warning: not yet but surely later later :warning:
-
 ```npm install thicker```
 
 ### How to use?
+__Example:__
 
 ```typescript
 import * as Thicker from 'thicker'
 
 // will return a random float between 0 and 100 
-const randomPoint = Thicker.rand.randomFloat(0,100)
+const randomPoint = Thicker.Random.randomFloat(0,100)
 
 ```
 ### Features
 
-TBA
+__Random__:
+* TBA
+__Recursion__:
+__Geometry__:
+__String__:
+__Utils__:
+__Crypto__:
 
 ## NPM custom commands
 
@@ -58,11 +62,6 @@ TBA
 - `test:watch`: Run jest in interactive test mode.
 - `docs`: Generate the docs directory.
 - `lint`: Runs linter on the whole project.
-
-
-## Other/Optional considerations
-
-TBA
 
 ## License
 
